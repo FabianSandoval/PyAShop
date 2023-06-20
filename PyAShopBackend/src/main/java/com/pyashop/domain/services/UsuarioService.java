@@ -1,5 +1,6 @@
 package com.pyashop.domain.services;
 
+import com.pyashop.domain.Donacion;
 import com.pyashop.domain.Producto;
 import com.pyashop.domain.Usuario;
 

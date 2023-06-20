@@ -1,5 +1,6 @@
 package com.pyashop.application;
 
+import com.pyashop.domain.Donacion;
 import com.pyashop.domain.Producto;
 import com.pyashop.domain.Usuario;
 import com.pyashop.infrastracture.ProductoRepository;
@@ -35,6 +36,13 @@ public class UsuarioController {
         Usuario usuarioNew = usuarioService.crearUsuario(usuario);
         return new WrapperResponse<>(true,"success", usuarioNew).createResponse();
     }
+
+    @PutMapping
+    public ResponseEntity<WrapperResponse<Usuario>> modificarUsuario(@Valid @RequestBody Usuario usuario){
+        Usuario usuarioUpdate=usuarioService.modificarUsuario(usuario);
+        return new WrapperResponse<>(true, "success",usuario).createResponse();
+    }
+
     @PostMapping("/login")
     public ResponseEntity<WrapperResponse<Usuario>> logIn (@Valid @RequestBody Usuario user) throws Exception{
         String correoUsuario= user.getCorreoUsuario();
